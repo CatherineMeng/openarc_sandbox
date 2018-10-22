@@ -12,5 +12,5 @@ export OPENARC_ARCH=3
 export ACC_DEVICE_TYPE=acc_device_not_host
 export ACC_DEVBICE_NUM=0
 export OPENARCCRT_UNIFIEDMEM=0
-export PATH=~/develop/OpenARC/bin/:~/develop/OpenARC/openarcrt/:$PATH
+export PATH=~cwsmith/develop/OpenARC/bin/:~cwsmith/develop/OpenARC/openarcrt/:$PATH
 export OPENARC_FPGA=ARRIA_X
