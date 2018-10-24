@@ -1,6 +1,10 @@
 #!/bin/bash -ex
+
+#setup the aoc compiler
+module load nallatech
+
+#setup access to newer GCC and Java development environment
 source /home/cwsmith/software/spack_install/linux-centos7-x86_64/gcc-centos_7.2/lmod-7.8-rfoosrn6l7ttojvsumrgowujbwlkqnl4/lmod/lmod/init/bash
-unset MODULEPATH
 module use /home/cwsmith/software/spack_install/lmod/linux-centos7-x86_64/Core
 
 module load gcc
