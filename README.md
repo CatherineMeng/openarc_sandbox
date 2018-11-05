@@ -13,7 +13,7 @@ source env.sh
 mkdir build-openarc_sandbox-emu
 cd !$
 make -f $SANDBOX/Makefile SRC=$SANDBOX/reduction emulate
-make -f $SANDBOX/Makefile SRC=$SANDBOX/slidingAvg device
+make -f $SANDBOX/Makefile SRC=$SANDBOX/slidingAvg emulate
 ```
 
 ## build and test fpga circuit

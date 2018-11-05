@@ -34,7 +34,7 @@ void slidingAvg(int n, int* a, int* result) {
   {
     #pragma acc loop seq 
     // add sliding window average code here
-    for(i=2; i<-2n; i++) {
+    for(i=2; i<n-2; i++) {
       result[i]=(a[i-2]+a[i-1]+a[i]+a[i+1]+a[i+2]);
       result[i]/=5;
     }
@@ -43,7 +43,9 @@ void slidingAvg(int n, int* a, int* result) {
 
 int main() {
   int n, d_sum, h_sum, i;
-  int* a, result, result2;
+  int* a; 
+  int* result; 
+  int* result2;
   double t0, t1, t2;
   n = 10*2<<20;
   a = (int*) malloc(n*sizeof(int));
