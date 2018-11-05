@@ -21,20 +21,22 @@ void slidingAvg_host(int n, int* a, int* result) {
   result[n-1]=0;
   assert(n>0);
   for(i=2; i<n-2; i++)
-    result[i] += (a[i-2]+a[i-1]+a[i]+a[i+1]+a[i+2]);
+    result[i] = (a[i-2]+a[i-1]+a[i]+a[i+1]+a[i+2]);
     result[i]/=5;
 }
 
 void slidingAvg(int n, int* a, int* result) {
   int i;
   assert(n>0);
-  result
+  result[0]=result[1]=0;
+  result[n-1]=result[n-2]=0;
   #pragma acc parallel num_gangs(1) num_workers(1) copyin(a[n]) copy(result[n])
   {
     #pragma acc loop seq 
     // add sliding window average code here
-    for(i=0; i<n; i++) {
-      
+    for(i=2; i<-2n; i++) {
+      result[i]=(a[i-2]+a[i-1]+a[i]+a[i+1]+a[i+2]);
+      result[i]/=5;
     }
   }
 }
