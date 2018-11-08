@@ -37,7 +37,6 @@ make -f $SANDBOX/Makefile SRC=$SANDBOX/slidingAvg device
    Create a lease with filters ["$fpga.board_model"=="385A"] and ["$node_type"=="fpga"]
    Launch an instance with image CC-CentOS7-FPGA
 2. Instance environment config
-   module load nallatech
    export OPENARC_ARCH=3
    export ACC_DEVICE_TYPE=acc_device_not_host
    export ACC_DEVICE_NUM=0
@@ -47,7 +46,8 @@ make -f $SANDBOX/Makefile SRC=$SANDBOX/slidingAvg device
    Append instance ssh key to pulic key list on build node
    scp -r username@fpga01.tacc.chameleoncloud.org:build_directory/cetus_output .
    cd cetus_output
-   ./slidingAvg
-   ./reduce_sum
+   Run the host code:
+     ./slidingAvg
+     ./reduce_sum
    
 ```
