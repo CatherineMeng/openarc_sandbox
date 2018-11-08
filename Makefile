@@ -35,11 +35,9 @@ cpp_host: cetus_output/$(source).cpp
 test_emu:
 	cd cetus_output; CL_CONTEXT_EMULATOR_DEVICE_ALTERA=1 ./$(source)
 
-test_device:
-	cd cetus_output; ./$(source)
-
 base: makedirectories serial test_serial openarc
 
 emulate: base kernel_emu cpp_host test_emu
 
-device: base kernel_device cpp_host test_device
+device: base kernel_device cpp_host
+
