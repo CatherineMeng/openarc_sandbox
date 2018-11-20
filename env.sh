@@ -10,6 +10,9 @@ module use /home/cwsmith/software/spack_install/lmod/linux-centos7-x86_64/Core
 module load gcc
 module load jdk/1.8.0_181-b13-o2xaneg
 
+#the aoc compiler will fail to compile for the device if DISPLAY is set
+unset DISPLAY
+
 export SANDBOX=$PWD
 
 export OPENARC_ARCH=3
