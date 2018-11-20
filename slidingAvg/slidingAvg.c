@@ -22,14 +22,12 @@ void slidingAvg_host(int n, int* a, int* result) {
 }
 
 void slidingAvg(int n, int* a, int* result) {
-  int i;
-  int shreg[5];
-  shreg[0]=shreg[1]=0;
-  shreg[2]=1; shreg[3]=2; shreg[4]=3;
   assert(n>0);
-  result[0]=result[1]=result[n-1]=result[n-2]=0;
   #pragma acc parallel num_gangs(1) num_workers(1) copyin(a[n]) copy(result[n])
   {
+    int i;
+    int shreg[5] = {0,0,1,2,3};
+    result[0]=result[1]=result[n-1]=result[n-2]=0;
     #pragma acc loop seq 
     for(i=2; i<n-2; i++) {
       for (int ind=0; ind<4; ind++){
