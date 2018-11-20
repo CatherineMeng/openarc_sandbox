@@ -2,6 +2,7 @@ SRC?=./
 CC=gcc
 CXX=g++
 arc=openarc
+arcFlags=-assumeNoAliasingAmongKernelArgs
 cflags=-O2 -std=c99
 cppflags=-O2
 target=bin
@@ -21,7 +22,7 @@ test_serial:
 	./$(source)_serial
 
 openarc: $(SRC)/$(source).c
-	$(arc) $^
+	$(arc) $(arcFlags) $^
 
 kernel_emu: cetus_output/openarc_kernel.cl
 	aoc -march=emulator --board $(board) $^ -o cetus_output/openarc_kernel.aocx
