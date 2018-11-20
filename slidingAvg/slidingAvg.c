@@ -30,6 +30,7 @@ void slidingAvg(int n, int* a, int* result) {
     result[0]=result[1]=result[n-1]=result[n-2]=0;
     #pragma acc loop seq 
     for(i=2; i<n-2; i++) {
+      #pragma unroll
       for (int ind=0; ind<4; ind++){
         shreg[ind]=shreg[ind+1];
       }
