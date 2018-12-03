@@ -25,12 +25,11 @@ void slidingAvg_host(int n, int* a, int* result) {
 void slidingAvg(int n, int* a, int* result) {
   assert(n>0);
   #pragma acc parallel num_gangs(1) num_workers(1) copyin(a[n]) copy(result[n])
-  {
     #define rows n/2
     #define cols 2
     #pragma acc parallel loop num_gangs(1) num_workers(1) vector_length(1) 
-    #pragma openarc transform window (a, result)
-    for (int index=2; index<rows*cols;++index){
+    #pragma openarc transform window (a,result)
+    for (int index=0; index<rows*cols;++index){
       int n=a[index-cols];
       int s=a[index+cols];
       int e=a[index+1];
@@ -38,7 +37,7 @@ void slidingAvg(int n, int* a, int* result) {
       result[index]=(a[index]+n+s+e+w)/5;
     }
   result[0]=result[1]=result[n-1]=result[n-2]=0; 
-  }
+  
 }
 
 int main() {
