@@ -17,6 +17,10 @@ make -f $SANDBOX/Makefile SRC=$SANDBOX/reduction emulate
 mkdir build-openarc_slidingAvg-emu
 cd !$
 make -f $SANDBOX/Makefile SRC=$SANDBOX/slidingAvg emulate
+
+mkdir build-openarc_slidingWindow-emu
+cd !$
+make -f $SANDBOX/Makefile SRC=$SANDBOX/slidingWindow emulate
 ```
 
 ## build on fpga circuit
@@ -29,6 +33,10 @@ make -f $SANDBOX/Makefile SRC=$SANDBOX/reduction device
 mkdir build-openarc_slidingAvg-fpga
 cd !$
 make -f $SANDBOX/Makefile SRC=$SANDBOX/slidingAvg device
+
+mkdir build-openarc_slidingWindow-fpga
+cd !$
+make -f $SANDBOX/Makefile SRC=$SANDBOX/slidingWindow device
 ```
 
 ## run on fpga circuit
@@ -49,5 +57,6 @@ make -f $SANDBOX/Makefile SRC=$SANDBOX/slidingAvg device
    Run the host code:
      ./slidingAvg
      ./reduce_sum
+     ./slidingWindow
    
 ```
